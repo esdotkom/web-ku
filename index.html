@@ -305,35 +305,6 @@ https://templatemo.com/tm-592-glossy-touch
                         <button onclick="kirimData()">Kirim Data</button>
                         <p id="status"></p>
                     </div>
-<script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuoRjK373LJEwjE78OG-eORnV-VWJM08ZITB7C6r2m3jZwmpqbUgQ9UsKeHxhYEbcp/exec"; // <<< GANTI
-
-    function kirimData() {
-        let judul = document.getElementById("keperluan").value;
-        let status = document.getElementById("status");
-
-        if (judul.trim() === "") {
-            status.innerHTML = "⚠️ Sampaikan Kritik dengan Baik.";
-            return;
-        }
-
-        status.innerHTML = "⏳ Mengirim data...";
-
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify({ judul: judul })
-        })
-        .then(() => {
-            status.innerHTML = "✔️ Data berhasil dikirim!";
-            document.getElementById("keperluan").value = "";
-        })
-        .catch(err => {
-            status.innerHTML = "❌ Terjadi kesalahan.";
-            console.log(err);
-        });
-    }
-</script>
                     
                     <!-- KK RPL -->
                     <div class="service-card glass">                     
@@ -484,6 +455,7 @@ https://templatemo.com/tm-592-glossy-touch
 </body>
 
 </html>
+
 
 
 
