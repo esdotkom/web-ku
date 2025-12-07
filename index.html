@@ -115,40 +115,41 @@ https://templatemo.com/tm-592-glossy-touch
                     </div>
 
                     <div class="feature-card glass">
-                        <div class="feature-icon">🚀</div>
-                       <h3>Bantu Kami Artikel yang Ingin diterbitkan</h3>
+                        <div class="feature-icon">⚙️</div>
+                        <h3>Bantu Kami Artikel yang Ingin diterbitkan</h3>
                         <textarea id="keperluan" rows="3" placeholder="Judul Artikel"></textarea>
-                        <button onclick="kirimData()">Kirim Data</button>
+
+                        <button onclick="kirimData()">Kirim Data</button>                        
                     </div>
-                    <script>
-                        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuoRjK373LJEwjE78OG-eORnV-VWJM08ZITB7C6r2m3jZwmpqbUgQ9UsKeHxhYEbcp/exec"; // <<< GANTI
+                      <script>
+                            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuoRjK373LJEwjE78OG-eORnV-VWJM08ZITB7C6r2m3jZwmpqbUgQ9UsKeHxhYEbcp/exec"; // <<< GANTI
 
-                       function kirimData() {
-                        let judul = document.getElementById("keperluan").value;
-                        let status = document.getElementById("status");
+                            function kirimData() {
+                                let judul = document.getElementById("keperluan").value;
+                                let status = document.getElementById("status");
 
-                        if (judul.trim() === "") {
-                        status.innerHTML = "⚠️ Judul tidak boleh kosong.";
-                        return;
-                        }
+                                if (judul.trim() === "") {
+                                    status.innerHTML = "⚠️ Judul tidak boleh kosong.";
+                                    return;
+                                }
 
-                        status.innerHTML = "⏳ Mengirim data...";
+                                status.innerHTML = "⏳ Mengirim data...";
 
-                            fetch(SCRIPT_URL, {
-                                method: "POST",
-                                mode: "no-cors",
-                                body: JSON.stringify({ judul: judul })
-                            })
-                            .then(() => {
-                                status.innerHTML = "✔️ Data berhasil dikirim!";
-                                document.getElementById("keperluan").value = "";
-                            })
-                            .catch(err => {
-                                status.innerHTML = "❌ Terjadi kesalahan.";
-                                console.log(err);
-                            });
-                        }
-                    </script>                    
+                                fetch(SCRIPT_URL, {
+                                    method: "POST",
+                                    mode: "no-cors",
+                                    body: JSON.stringify({ judul: judul })
+                                })
+                                .then(() => {
+                                    status.innerHTML = "✔️ Data berhasil dikirim!";
+                                    document.getElementById("keperluan").value = "";
+                                })
+                                .catch(err => {
+                                    status.innerHTML = "❌ Terjadi kesalahan.";
+                                    console.log(err);
+                                });
+                            }
+                    </script>                              
                 </section>
             </div>
         </div>
