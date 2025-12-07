@@ -299,9 +299,41 @@ https://templatemo.com/tm-592-glossy-touch
 
                 <section class="services-grid">
                     <div class="service-card glass">
-                        
-                    </div>
+                        <div class="feature-icon">⚙️</div>
+                        <h3>Saran dan Kritik</h3>
+                        <textarea id="keperluan" rows="3" placeholder="Saran dan Kritik"></textarea>
 
+                        <button onclick="kirimData()">Kirim Data</button>                         
+                    </div>
+                      <script>
+                            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuoRjK373LJEwjE78OG-eORnV-VWJM08ZITB7C6r2m3jZwmpqbUgQ9UsKeHxhYEbcp/exec"; // <<< GANTI
+
+                            function kirimData() {
+                                let judul = document.getElementById("keperluan").value;
+                                let status = document.getElementById("status");
+
+                                if (judul.trim() === "") {
+                                    status.innerHTML = "⚠️ Judul tidak boleh kosong.";
+                                    return;
+                                }
+
+                                status.innerHTML = "⏳ Mengirim data...";
+
+                                fetch(SCRIPT_URL, {
+                                    method: "POST",
+                                    mode: "no-cors",
+                                    body: JSON.stringify({ judul: judul })
+                                })
+                                .then(() => {
+                                    status.innerHTML = "✔️ Data berhasil dikirim!";
+                                    document.getElementById("keperluan").value = "";
+                                })
+                                .catch(err => {
+                                    status.innerHTML = "❌ Terjadi kesalahan.";
+                                    console.log(err);
+                                });
+                            }
+                    </script>
                     <!-- KK RPL -->
                     <div class="service-card glass">                     
                         <iframe
@@ -451,6 +483,7 @@ https://templatemo.com/tm-592-glossy-touch
 </body>
 
 </html>
+
 
 
 
