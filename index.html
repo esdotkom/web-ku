@@ -142,8 +142,8 @@ https://templatemo.com/tm-592-glossy-touch
 
                     <div class="feature-card glass">
                         <div class="feature-icon">⚙️</div>
-                        <h3>Manakah artikel yang ingin diterbitkan dahulu?</h3>
-                        <textarea id="keperluan" placeholder="Judul Artikel"></textarea>
+                        <h3>Link Kirim Tugas</h3>
+                        <textarea id="keperluan" placeholder="Link Github"></textarea>
                         <button onclick="kirimData()">Kirim Data</button>
                         <p id="status"></p>
                     </div>
@@ -167,7 +167,7 @@ https://templatemo.com/tm-592-glossy-touch
             body: JSON.stringify({ judul: judul })
         })
         .then(() => {
-            status.innerHTML = "✔️ Data berhasil dikirim!";
+            status.innerHTML = "✔️ Link berhasil dikirim!";
             document.getElementById("keperluan").value = "";
         })
         .catch(err => {
@@ -455,6 +455,7 @@ https://templatemo.com/tm-592-glossy-touch
 </body>
 
 </html>
+
 
 
 
